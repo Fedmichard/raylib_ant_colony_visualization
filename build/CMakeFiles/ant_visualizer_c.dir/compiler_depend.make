@@ -4,6 +4,7 @@
 CMakeFiles/ant_visualizer_c.dir/src/main.c.obj: C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/main.c \
   C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raygui.h \
   C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raylib.h \
+  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raymath.h \
   C:/msys64/mingw64/include/_mingw.h \
   C:/msys64/mingw64/include/_mingw_mac.h \
   C:/msys64/mingw64/include/_mingw_off_t.h \
@@ -34,8 +35,6 @@ CMakeFiles/ant_visualizer_c.dir/src/main.c.obj: C:/Users/franc/Documents/Persona
   C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.1.0/include/syslimits.h
 
 
-C:/msys64/mingw64/include/_mingw_stdarg.h:
-
 C:/msys64/mingw64/include/_mingw_secapi.h:
 
 C:/msys64/mingw64/include/_mingw.h:
@@ -48,11 +47,15 @@ C:/msys64/mingw64/include/crtdefs.h:
 
 C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raylib.h:
 
+C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raymath.h:
+
 C:/msys64/mingw64/include/_mingw_mac.h:
 
 C:/msys64/mingw64/include/corecrt_wstdlib.h:
 
 C:/msys64/mingw64/include/_mingw_off_t.h:
+
+C:/msys64/mingw64/include/_mingw_stdarg.h:
 
 C:/msys64/mingw64/include/corecrt.h:
 
