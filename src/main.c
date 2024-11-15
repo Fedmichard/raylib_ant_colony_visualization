@@ -9,6 +9,24 @@
 #define WIDTH 800
 #define HEIGHT 600
 
+// Elements
+
+typedef struct Ant {
+
+} Ant;
+
+typedef struct pheromones {
+
+} pheromones;
+
+typedef struct Wall {
+
+} Wall;
+
+typedef struct Food {
+
+} Food;
+
 //------------------------------------------------------------------------------------
 // Program main entry point
 // Compile with GCC Compiler
@@ -22,6 +40,8 @@ int main(void)
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
+    
+    LoadImage("../resources/ant.png");
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -35,12 +55,18 @@ int main(void)
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
+            // Background
+            ClearBackground(BLACK);
 
-            ClearBackground(RAYWHITE);
+            // Draw Spawn
+            DrawCircle(400, 300, 10.0f, RED);
 
-            DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+            // Draw Food
 
-            GuiPanel((Rectangle){ 675, 100, 100, 25 }, "Hi!");
+            // Draw ants
+
+            // GUI
+            // GuiPanel((Rectangle){ 675, 100, 100, 25 }, "Hi!");
 
         EndDrawing();
         //----------------------------------------------------------------------------------
