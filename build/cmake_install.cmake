@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization
+# Install script for directory: C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/audio_visualizer_c")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/ant_visualizer_c")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/msys64/ucrt64/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

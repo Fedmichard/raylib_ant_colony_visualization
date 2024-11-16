@@ -1,8 +1,7 @@
 [
 {
-  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\main.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\main.c",
-  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/main.c",
-  "output": "CMakeFiles/ant_visualizer_c.dir/src/main.c.obj"
+  "directory": "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\main.c.obj -c C:\\Users\\Fed\\Documents\\PROJEKTS\\raylib_ant_colony_visualization\\src\\main.c",
+  "file": "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/src/main.c"
 }
 ]

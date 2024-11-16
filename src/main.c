@@ -9,7 +9,7 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-#define MAX_ANTS 10
+#define MAX_ANTS 5000
 
 // Time Variables
 float delta_time;
@@ -78,8 +78,8 @@ int main(void)
     // defining spawn information
     Spawn spawn = {
         .color = RED,
-        .position = { WIDTH / 2, HEIGHT / 2 },
-        .size = 20.0f
+        .position = { 200, 600 },
+        .size = 10.0f
     };
 
     // ant texture
@@ -90,7 +90,7 @@ int main(void)
         .direction = { 0.0f, 0.0f },
         .angle = 0.0f,
         .speed = 100.0f,
-        .rotation_speed = 10.0f
+        .rotation_speed = 5.0f
     };
 
     for (int i = 0; i < sizeof(ants) / sizeof(ants[0]); i++) {
@@ -105,7 +105,6 @@ int main(void)
     while (!WindowShouldClose()) {
         delta_time = GetFrameTime();
         rotation_delta = (90.0f * delta_time) * ant.rotation_speed;
-        float random_angle = GetRandomValue(0, 360);
 
         // 1. Updates / Inputs
         //----------------------------------------------------------------------------------
@@ -154,27 +153,37 @@ int main(void)
 
         // Update movement for the ants
         for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-            if (GetRandomValue(0, 100000) < 5) {
-                ants[i].angle = GetRandomValue(-10, 10);
+            if (GetRandomValue(0, 1000) < 5) {
+                int target_angle = GetRandomValue(-45, 45);
+                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
+                // ants[i].angle += GetRandomValue(-45, 45) * rotation_delta;
 
             }
 
             // Collisions
             if (ants[i].position.x < 5) { 
-                ant.position.x = 5;
-                ants[i].angle = GetRandomValue(90, 270);
+                ants[i].position.x = 5;
+                int target_angle = GetRandomValue(-180, 180);
+                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
+                // ants[i].angle += GetRandomValue(-90, 90) * rotation_delta;
             }
             if (ants[i].position.x > WIDTH - 5) {
-                ant.position.x = WIDTH - 5;
-                ants[i].angle = GetRandomValue(-90, 90);
+                ants[i].position.x = WIDTH - 5;
+                int target_angle = GetRandomValue(-180, 180);
+                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
+                // ants[i].angle += GetRandomValue(-180, 180) * rotation_delta;
             }
             if (ants[i].position.y < 5) {
-                ant.position.y = 5;
-                ants[i].angle = GetRandomValue(180, 360);
+                ants[i].position.y = 5;
+                int target_angle = GetRandomValue(-360, 360);
+                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
+                // ants[i].angle += GetRandomValue(-90, 90) * rotation_delta;
             }
             if (ants[i].position.y > HEIGHT - 5) {
-                ant.position.y = HEIGHT - 5;
-                ants[i].angle = GetRandomValue(0, 180);
+                ants[i].position.y = HEIGHT - 5;
+                int target_angle = GetRandomValue(-360, 360);
+                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
+                // ants[i].angle += GetRandomValue(-180, 180) * rotation_delta;
             }
         }
 

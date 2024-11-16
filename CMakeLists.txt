@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.26)
+cmake_minimum_required(VERSION 3.2)
 project(ant_visualizer_c)
 
 # Include Directories
 include_directories(header_files)
 include_directories(resources)
+include_directories(includes)
 include_directories(raylib)
 
 # Add Raylib static library
