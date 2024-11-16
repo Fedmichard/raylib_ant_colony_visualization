@@ -9,7 +9,7 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-#define MAX_ANTS 100
+#define MAX_ANTS 10
 
 // Time Variables
 float delta_time;
@@ -78,8 +78,8 @@ int main(void)
     // defining spawn information
     Spawn spawn = {
         .color = RED,
-        .position = {200, 600},
-        .size = 50.0f
+        .position = { WIDTH / 2, HEIGHT / 2 },
+        .size = 20.0f
     };
 
     // ant texture
@@ -95,6 +95,7 @@ int main(void)
 
     for (int i = 0; i < sizeof(ants) / sizeof(ants[0]); i++) {
         ants[i].position = ant.position;
+        ants[i].angle = (i * (360.0f / MAX_ANTS));
     }
 
 
@@ -104,6 +105,7 @@ int main(void)
     while (!WindowShouldClose()) {
         delta_time = GetFrameTime();
         rotation_delta = (90.0f * delta_time) * ant.rotation_speed;
+        float random_angle = GetRandomValue(0, 360);
 
         // 1. Updates / Inputs
         //----------------------------------------------------------------------------------
@@ -139,6 +141,43 @@ int main(void)
         ant.position.x += (ant.direction.x * ant.speed) * delta_time;
         */  
 
+        // Ants starting positions
+        for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
+            ants[i].speed = ant.speed;
+            ants[i].rotation_speed = ant.rotation_speed;
+
+            ants[i].direction = Vector2Normalize((Vector2) { sinf(DEG2RAD * ants[i].angle), -cos(DEG2RAD * ants[i].angle) });
+
+            ants[i].position.y += (ants[i].direction.y * ants[i].speed) * delta_time;
+            ants[i].position.x += (ants[i].direction.x * ants[i].speed) * delta_time;
+        }
+
+        // Update movement for the ants
+        for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
+            if (GetRandomValue(0, 100000) < 5) {
+                ants[i].angle = GetRandomValue(-10, 10);
+
+            }
+
+            // Collisions
+            if (ants[i].position.x < 5) { 
+                ant.position.x = 5;
+                ants[i].angle = GetRandomValue(90, 270);
+            }
+            if (ants[i].position.x > WIDTH - 5) {
+                ant.position.x = WIDTH - 5;
+                ants[i].angle = GetRandomValue(-90, 90);
+            }
+            if (ants[i].position.y < 5) {
+                ant.position.y = 5;
+                ants[i].angle = GetRandomValue(180, 360);
+            }
+            if (ants[i].position.y > HEIGHT - 5) {
+                ant.position.y = HEIGHT - 5;
+                ants[i].angle = GetRandomValue(0, 180);
+            }
+        }
+
         // 3. Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
@@ -146,24 +185,18 @@ int main(void)
             ClearBackground(BLACK);
 
             // Draw Walls
-            DrawRectangle(0, 0, 10, HEIGHT, LIGHTGRAY); // Left
-            DrawRectangle(WIDTH - 10, 0, 10, HEIGHT, LIGHTGRAY); // Right
-            DrawRectangle(0, 0, WIDTH, 10, LIGHTGRAY); // Top
-            DrawRectangle(0, HEIGHT - 10, WIDTH, 10, LIGHTGRAY); // Bottom
+
+            /*
+            DrawRectangle(0, 0, 5, HEIGHT, LIGHTGRAY); // Left
+            DrawRectangle(WIDTH - 5, 0, 5, HEIGHT, LIGHTGRAY); // Right
+            DrawRectangle(0, 0, WIDTH, 5, LIGHTGRAY); // Top
+            DrawRectangle(0, HEIGHT - 5, WIDTH, 5, LIGHTGRAY); // Bottom
+            */
 
             // Draw Food
 
             // Draw ants
             for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-                ants[i].speed = ant.speed;
-                ants[i].rotation_speed = ant.rotation_speed;
-
-                ants[i].angle = (i * (360.0f / MAX_ANTS));
-                ants[i].direction = Vector2Normalize((Vector2) {sinf(DEG2RAD * ants[i].angle), -cos(DEG2RAD * ants[i].angle)});
-
-                ants[i].position.y += (ants[i].direction.y * ants[i].speed) * delta_time;
-                ants[i].position.x += (ants[i].direction.x * ants[i].speed) * delta_time;
-
                 DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.015f, RED);    
             }
 
