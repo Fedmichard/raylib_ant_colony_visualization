@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.26)
 project(ant_visualizer_c)
 
 # Include Directories

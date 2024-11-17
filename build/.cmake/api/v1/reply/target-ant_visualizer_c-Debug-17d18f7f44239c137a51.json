@@ -83,20 +83,20 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/header_files"
+					"path" : "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/resources"
+					"path" : "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/resources"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/includes"
+					"path" : "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes"
 				},
 				{
 					"backtrace" : 7,
 					"isSystem" : true,
-					"path" : "C:/Users/Fed/Documents/PROJEKTS/raylib_ant_colony_visualization/raylib"
+					"path" : "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/raylib"
 				}
 			],
 			"language" : "C",
@@ -121,7 +121,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "..\\raylib\\libraylib.a",
+				"fragment" : "C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\raylib\\libraylib.a",
 				"role" : "libraries"
 			},
 			{

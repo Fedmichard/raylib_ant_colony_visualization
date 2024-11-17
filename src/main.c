@@ -9,7 +9,8 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-#define MAX_ANTS 5000
+#define MAX_ANTS 1000
+#define MAX_FOOD 1000
 
 // Time Variables
 float delta_time;
@@ -44,20 +45,20 @@ typedef struct Spawn {
     int size;
 } Spawn;
 
-// Wall structure
-typedef struct Wall {
+typedef struct Food {
+    Vector2 spawn;
+    float size;
     Color color;
+    bool taken;
+} Food;
 
-} Wall;
+Food foods[MAX_FOOD];
 
 typedef struct pheromones {
 
 } pheromones;
 
 
-typedef struct Food {
-
-} Food;
 
 
 
@@ -78,7 +79,7 @@ int main(void)
     // defining spawn information
     Spawn spawn = {
         .color = RED,
-        .position = { 200, 600 },
+        .position = { WIDTH / 2, HEIGHT / 2 },
         .size = 10.0f
     };
 
@@ -90,10 +91,30 @@ int main(void)
         .direction = { 0.0f, 0.0f },
         .angle = 0.0f,
         .speed = 100.0f,
-        .rotation_speed = 5.0f
+        .rotation_speed = 10.0f
     };
 
+    Food food = {
+        .spawn = { 800, 200},
+        .color = GREEN,
+        .size = 4.0f,
+        .taken = false
+    };
+
+    // Starting food values
+    for (int i = 0; i < sizeof(foods) / sizeof(foods[0]); i++) {
+        foods[i].spawn.x = food.spawn.x + GetRandomValue(0, 50);
+        foods[i].spawn.y = food.spawn.y + GetRandomValue(0, 50);
+        foods[i].color = food.color;
+        foods[i].size = food.size;
+        foods[i].taken = false;
+    }
+
+    // Ants starting positions and angles
     for (int i = 0; i < sizeof(ants) / sizeof(ants[0]); i++) {
+        ants[i].speed = ant.speed;
+        ants[i].rotation_speed = ant.rotation_speed;
+
         ants[i].position = ant.position;
         ants[i].angle = (i * (360.0f / MAX_ANTS));
     }
@@ -104,7 +125,7 @@ int main(void)
     // Main game loop
     while (!WindowShouldClose()) {
         delta_time = GetFrameTime();
-        rotation_delta = (90.0f * delta_time) * ant.rotation_speed;
+        rotation_delta = (45.0f * delta_time) * ant.rotation_speed;
 
         // 1. Updates / Inputs
         //----------------------------------------------------------------------------------
@@ -140,50 +161,47 @@ int main(void)
         ant.position.x += (ant.direction.x * ant.speed) * delta_time;
         */  
 
-        // Ants starting positions
+        // Ants position updates
         for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-            ants[i].speed = ant.speed;
-            ants[i].rotation_speed = ant.rotation_speed;
-
             ants[i].direction = Vector2Normalize((Vector2) { sinf(DEG2RAD * ants[i].angle), -cos(DEG2RAD * ants[i].angle) });
 
             ants[i].position.y += (ants[i].direction.y * ants[i].speed) * delta_time;
             ants[i].position.x += (ants[i].direction.x * ants[i].speed) * delta_time;
         }
 
-        // Update movement for the ants
+        // Update angle and direction for the ants
         for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
             if (GetRandomValue(0, 1000) < 5) {
-                int target_angle = GetRandomValue(-45, 45);
-                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
-                // ants[i].angle += GetRandomValue(-45, 45) * rotation_delta;
-
+                ants[i].angle += GetRandomValue(-15, 15) * rotation_delta;
             }
 
             // Collisions
+            // Left Wall
             if (ants[i].position.x < 5) { 
-                ants[i].position.x = 5;
-                int target_angle = GetRandomValue(-180, 180);
-                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
-                // ants[i].angle += GetRandomValue(-90, 90) * rotation_delta;
+                ants[i].position.x = 5; // Reset position to prevent getting stuck
+                ants[i].angle = GetRandomValue(0, 180) - ants[i].angle; // Reflect angle horizontally
+                ants[i].angle += GetRandomValue(-45, 45) * rotation_delta; // Add random perturbation
             }
+
+            // Right wall
             if (ants[i].position.x > WIDTH - 5) {
-                ants[i].position.x = WIDTH - 5;
-                int target_angle = GetRandomValue(-180, 180);
-                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
-                // ants[i].angle += GetRandomValue(-180, 180) * rotation_delta;
+                ants[i].position.x = WIDTH - 5; // Reset position
+                ants[i].angle = GetRandomValue(0, 180) - ants[i].angle; // Reflect angle horizontally
+                ants[i].angle += GetRandomValue(-45, 45) * rotation_delta; // Add random perturbation
             }
+
+            // Top wall
             if (ants[i].position.y < 5) {
-                ants[i].position.y = 5;
-                int target_angle = GetRandomValue(-360, 360);
-                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
-                // ants[i].angle += GetRandomValue(-90, 90) * rotation_delta;
+                ants[i].position.y = 5; // Reset position
+                ants[i].angle = -ants[i].angle; // Reflect angle vertically
+                ants[i].angle += GetRandomValue(-45, 45) * rotation_delta; // Add random perturbation
             }
+
+            // Bottom wall
             if (ants[i].position.y > HEIGHT - 5) {
-                ants[i].position.y = HEIGHT - 5;
-                int target_angle = GetRandomValue(-360, 360);
-                ants[i].angle += (target_angle - ants[i].angle) * 0.1f;
-                // ants[i].angle += GetRandomValue(-180, 180) * rotation_delta;
+                ants[i].position.y = HEIGHT - 5; // Reset position
+                ants[i].angle = -ants[i].angle; // Reflect angle vertically
+                ants[i].angle += GetRandomValue(-45, 45) * rotation_delta; // Add random perturbation
             }
         }
 
@@ -202,11 +220,14 @@ int main(void)
             DrawRectangle(0, HEIGHT - 5, WIDTH, 5, LIGHTGRAY); // Bottom
             */
 
-            // Draw Food
-
             // Draw ants
             for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
                 DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.015f, RED);    
+            }
+
+            // Draw Food
+            for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
+                DrawCircle(foods[i].spawn.x, foods[i].spawn.y, foods[i].size, foods[i].color);
             }
 
             // Draw Spawn
