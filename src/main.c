@@ -9,8 +9,8 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-#define MAX_ANTS 1000
-#define MAX_FOOD 1000
+#define MAX_ANTS 5
+#define MAX_FOOD 5
 
 // Time Variables
 float delta_time;
@@ -46,7 +46,7 @@ typedef struct Spawn {
 } Spawn;
 
 typedef struct Food {
-    Vector2 spawn;
+    Vector2 position;
     float size;
     Color color;
     bool taken;
@@ -95,7 +95,7 @@ int main(void)
     };
 
     Food food = {
-        .spawn = { 800, 200},
+        .position = { 800, 200},
         .color = GREEN,
         .size = 4.0f,
         .taken = false
@@ -103,8 +103,8 @@ int main(void)
 
     // Starting food values
     for (int i = 0; i < sizeof(foods) / sizeof(foods[0]); i++) {
-        foods[i].spawn.x = food.spawn.x + GetRandomValue(0, 50);
-        foods[i].spawn.y = food.spawn.y + GetRandomValue(0, 50);
+        foods[i].position.x = food.position.x + GetRandomValue(0, 50);
+        foods[i].position.y = food.position.y + GetRandomValue(0, 50);
         foods[i].color = food.color;
         foods[i].size = food.size;
         foods[i].taken = false;
@@ -167,6 +167,17 @@ int main(void)
 
             ants[i].position.y += (ants[i].direction.y * ants[i].speed) * delta_time;
             ants[i].position.x += (ants[i].direction.x * ants[i].speed) * delta_time;
+            
+            /*
+            for (int v = 0; v < (sizeof(foods) / sizeof(foods[0])); v++) {
+                if (ants[i].position.x == foods[v].position.x) {
+                    foods[v].position.x = ants[i].position.x + ants[i].position.x + 1.0f;
+                }
+                if (ants[i].position.y == foods[v].position.y) {
+                    foods[v].position.y = ants[i].position.y + ants[i].direction.y + 1.0f;
+                }
+            }
+            */
         }
 
         // Update angle and direction for the ants
@@ -205,6 +216,21 @@ int main(void)
             }
         }
 
+        // Update Food Collisions
+        for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
+
+            for (int v = 0; v < (sizeof(foods) / sizeof(foods[0])); v++) {
+                if (foods[v].taken) continue; // used in for loops to skip pass certain element based on cond
+
+                if (Vector2Distance(ants[i].position, foods[v].position) < foods[v].size) {
+                    foods[v].taken = true;
+                    foods[v].position = ants[i].position;
+                    break;
+                }
+            }
+
+        }
+
         // 3. Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
@@ -227,7 +253,7 @@ int main(void)
 
             // Draw Food
             for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
-                DrawCircle(foods[i].spawn.x, foods[i].spawn.y, foods[i].size, foods[i].color);
+                DrawCircle(foods[i].position.x, foods[i].position.y, foods[i].size, foods[i].color);
             }
 
             // Draw Spawn
