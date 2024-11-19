@@ -9,8 +9,8 @@
 
 #define WIDTH 1080
 #define HEIGHT 720
-#define MAX_ANTS 1000
-#define MAX_FOOD 1000
+#define MAX_ANTS 2000
+#define MAX_FOOD 50
 
 // Time Variables
 float delta_time;
@@ -20,6 +20,14 @@ float rotation_delta;
  *                              STRUCTS
  *************************************************************************
  */
+typedef struct Food {
+    Vector2 position;
+    float size;
+    Color color;
+    bool taken;
+} Food;
+
+Food foods[MAX_FOOD];
 
 // Structure that holds all of our ant information
 // direction represents the direction the ant is facing
@@ -29,9 +37,11 @@ float rotation_delta;
 typedef struct Ant {
     Vector2 direction;
     Vector2 position;
+    Food* food;
     float speed;
     float angle;
     float rotation_speed;
+    bool carrying;
 } Ant;
 
 // Array of ants
@@ -44,15 +54,6 @@ typedef struct Spawn {
     Vector2 position;
     int size;
 } Spawn;
-
-typedef struct Food {
-    Vector2 spawn;
-    float size;
-    Color color;
-    bool taken;
-} Food;
-
-Food foods[MAX_FOOD];
 
 typedef struct pheromones {
 
@@ -95,7 +96,7 @@ int main(void)
     };
 
     Food food = {
-        .spawn = { 800, 200},
+        .position = { 800, 200},
         .color = GREEN,
         .size = 4.0f,
         .taken = false
@@ -103,8 +104,8 @@ int main(void)
 
     // Starting food values
     for (int i = 0; i < sizeof(foods) / sizeof(foods[0]); i++) {
-        foods[i].spawn.x = food.spawn.x + GetRandomValue(0, 50);
-        foods[i].spawn.y = food.spawn.y + GetRandomValue(0, 50);
+        foods[i].position.x = food.position.x + GetRandomValue(0, 50);
+        foods[i].position.y = food.position.y + GetRandomValue(0, 50);
         foods[i].color = food.color;
         foods[i].size = food.size;
         foods[i].taken = false;
@@ -160,6 +161,20 @@ int main(void)
         ant.position.y += (ant.direction.y * ant.speed) * delta_time;
         ant.position.x += (ant.direction.x * ant.speed) * delta_time;
         */  
+       
+        // Update Food Collisions
+        for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
+            for (int v = 0; v < (sizeof(foods) / sizeof(foods[0])); v++) {
+                if (foods[v].taken) continue; // used in for loops to skip pass certain element based on cond
+
+                if (Vector2Distance(ants[i].position, foods[v].position) < 0.5f) {
+                    foods[v].taken = true;
+                    ants[i].carrying = true;
+                    ants[i].food = &foods[v];
+                    break;
+                }
+            }
+        }
 
         // Ants position updates
         for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
@@ -167,6 +182,21 @@ int main(void)
 
             ants[i].position.y += (ants[i].direction.y * ants[i].speed) * delta_time;
             ants[i].position.x += (ants[i].direction.x * ants[i].speed) * delta_time;
+            
+            /*
+            for (int v = 0; v < (sizeof(foods) / sizeof(foods[0])); v++) {
+                if (ants[i].position.x == foods[v].position.x) {
+                    foods[v].position.x = ants[i].position.x + ants[i].position.x + 1.0f;
+                }
+                if (ants[i].position.y == foods[v].position.y) {
+                    foods[v].position.y = ants[i].position.y + ants[i].direction.y + 1.0f;
+                }
+            }
+            */
+
+           if (ants[i].carrying) {
+            ants[i].food->position = ants[i].position;
+           }
         }
 
         // Update angle and direction for the ants
@@ -227,7 +257,7 @@ int main(void)
 
             // Draw Food
             for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
-                DrawCircle(foods[i].spawn.x, foods[i].spawn.y, foods[i].size, foods[i].color);
+                DrawCircle(foods[i].position.x, foods[i].position.y, foods[i].size, foods[i].color);
             }
 
             // Draw Spawn
