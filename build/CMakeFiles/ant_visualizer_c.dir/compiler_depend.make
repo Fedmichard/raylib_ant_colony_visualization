@@ -69,7 +69,10 @@ CMakeFiles/ant_visualizer_c.dir/src/foods.c.obj: C:/Users/franc/Documents/Person
 CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj: C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/grid.c \
   C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raylib.h \
   C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raymath.h \
+  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/ants.h \
+  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/foods.h \
   C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/grid.h \
+  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/spawn.h \
   C:/msys64/mingw64/include/_mingw.h \
   C:/msys64/mingw64/include/_mingw_mac.h \
   C:/msys64/mingw64/include/_mingw_off_t.h \

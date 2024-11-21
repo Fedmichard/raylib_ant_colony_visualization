@@ -18,7 +18,7 @@ void loadAnt(Ant* ant) {
 
 void drawAnt() {
     for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-        DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.02f, RED);    
+        DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.02f, (Color) { 213, 189, 175, 255 });    
     }
 }
 

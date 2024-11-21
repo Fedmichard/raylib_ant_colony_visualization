@@ -29,12 +29,9 @@ int main(void)
     // Set our game to run at inf frames
     SetTargetFPS(-1);
 
-    // grid
-    // float pheromoneGrid[GRID_WIDTH][GRID_HEIGHT] = { 0 };
-
     // define base spawn information
     Spawn spawn = {
-        .color = RED,
+        .color = (Color) { 214, 204, 194, 255 },
         .position = { WIDTH / 2, HEIGHT / 2 }, 
         .size = 10.0f
     };
@@ -54,8 +51,8 @@ int main(void)
     // define base food information
     Food food = {
         .position = { 800, 200}, // starting position of each food
-        .color = GREEN, // color of food
-        .size = 4.0f, // size of each
+        .color = (Color) { 70, 63, 58, 255 }, // color of food
+        .size = 3.5f, // size of each
         .taken = false, // whether or not its taken is default false
         .active = true,
     };
@@ -100,10 +97,11 @@ int main(void)
             ClearBackground((Color) { 6.0f, 8.0f, 9.0f, 255.0f });
 
             // Draw Grid
+            updateGrid();
             drawGrid();
 
             // Draw ants
-            drawAnt();
+            // drawAnt();
 
             // Draw Food
             drawFood();

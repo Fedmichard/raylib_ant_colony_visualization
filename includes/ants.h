@@ -10,7 +10,7 @@
 #include "foods.h"
 #include "spawn.h"
 
-#define MAX_ANTS 500
+#define MAX_ANTS 10
 
 // Structure that holds all of our ant information
 // direction represents the direction the ant is facing

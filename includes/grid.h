@@ -7,6 +7,7 @@
 
 #include "raylib.h"
 #include "raymath.h"
+#include "ants.h"
 
 // screen width and height
 #define WIDTH 1080
@@ -17,6 +18,7 @@
 #define ROWS 90
 #define DECAY_RATE 0.01f
 
+Color updateGrid();
 void drawGrid();
 
 #endif
