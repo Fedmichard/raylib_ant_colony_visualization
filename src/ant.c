@@ -15,6 +15,12 @@ void loadAnt(Ant* ant) {
     }
 }
 
+void drawAnt() {
+    for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
+        DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.015f, RED);    
+    }
+}
+
 void forwardMovement(float rotation_delta, float delta_time) {
     // Ants movement updates
     // The direction is calculated based on the angle and returns a 2d normalized vector

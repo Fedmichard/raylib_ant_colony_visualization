@@ -34,7 +34,6 @@ int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-
     InitWindow(WIDTH, HEIGHT, "Ant Colony Optimization"); // Windows
 
     // Set our game to run at inf frames
@@ -101,15 +100,10 @@ int main(void)
             ClearBackground(BLACK);
 
             // Draw ants
-            for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-                DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.015f, RED);    
-            }
+            drawAnt();
 
             // Draw Food
-            for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
-                if (!foods[i].active) continue;  
-                DrawCircle(foods[i].position.x, foods[i].position.y, foods[i].size, foods[i].color);
-            }
+            drawFood();
 
             // Draw Spawn
             DrawCircle(spawn.position.x, spawn.position.y, spawn.size, spawn.color);

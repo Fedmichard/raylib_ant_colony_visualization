@@ -32,6 +32,7 @@ extern Ant ants[MAX_ANTS];
 extern Texture2D ant_texture;
 
 void loadAnt(Ant* ant); // load ants
+void drawAnt();
 
 void forwardMovement(float rotation_delta, float delta_time); // keeps ants moving forward 
 void handleWallCollision(float rotation_delta, int width, int height); // update movement based on angle and direction

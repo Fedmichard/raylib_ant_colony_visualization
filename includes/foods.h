@@ -23,6 +23,7 @@ typedef struct Food {
 extern Food foods[MAX_FOOD]; // array of food structs
 
 void loadFood(Food* food); // loads all of our initial food 
+void drawFood();
 void depositFood(Spawn* spawn); // deposit food to spawn
 
 #endif

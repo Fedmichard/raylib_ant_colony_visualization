@@ -15,6 +15,13 @@ void loadFood(Food* food) {
     }
 }
 
+void drawFood() {
+    for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
+        if (!foods[i].active) continue;  
+        DrawCircle(foods[i].position.x, foods[i].position.y, foods[i].size, foods[i].color);
+    }
+}
+
 void depositFood(Spawn* spawn) {
     // food deposit
     for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
