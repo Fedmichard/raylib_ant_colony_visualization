@@ -54,7 +54,8 @@ int main(void)
         .direction = { 0.0f, 0.0f }, // Beginning direction of each ant
         .angle = 0.0f, // beginning angle
         .speed = 100.0f, // beginning speed
-        .rotation_speed = 10.0f // beginnning rotation speed
+        .sensing_radius = 50.0f,
+        .rotation_speed = 10.0f, // beginnning rotation speed
     };
 
     // define base food information
@@ -88,7 +89,7 @@ int main(void)
         depositFood(&spawn);
 
         // Ants
-        forwardMovement(rotation_delta, delta_time);
+        forwardMovement(rotation_delta, delta_time, &ant, &spawn);
         handleWallCollision(rotation_delta, WIDTH, HEIGHT);
 
         // 3. Draw

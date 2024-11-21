@@ -8,6 +8,7 @@
 #include "raylib.h"
 #include "raymath.h"
 #include "foods.h"
+#include "spawn.h"
 
 #define MAX_ANTS 2000
 
@@ -23,6 +24,7 @@ typedef struct Ant {
     float speed; // speed of each ant
     float angle; // angle which defines direction
     float rotation_speed; // speed of rotation to create rotation delta
+    float sensing_radius;
     bool carrying; // is currently carrying food
 } Ant;
 
@@ -34,7 +36,8 @@ extern Texture2D ant_texture;
 void loadAnt(Ant* ant); // load ants
 void drawAnt();
 
-void forwardMovement(float rotation_delta, float delta_time); // keeps ants moving forward 
+void forwardMovement(float rotation_delta, float delta_time, Ant* ant, Spawn* spawn); // keeps ants moving forward 
+void backToSpawn(Ant* ant, Spawn* spawn);
 void handleWallCollision(float rotation_delta, int width, int height); // update movement based on angle and direction
 
 
