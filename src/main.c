@@ -9,21 +9,15 @@
 #include "ants.h"
 #include "foods.h"
 #include "spawn.h"
+#include "pheromones.h"
 
+// screen width and height
 #define WIDTH 1080
 #define HEIGHT 720
 
 // Time Variables
 float delta_time;
 float rotation_delta;
-
-// struct that holds pheromones
-typedef struct pheromones {
-    Color color; // color of each pheromone
-    int size; // size of each
-    Vector2 position; // position of each
-    float strength; // strength of each which also determines size
-} pheromones;
 
 
 //------------------------------------------------------------------------------------
@@ -67,6 +61,13 @@ int main(void)
         .active = true,
     };
 
+    Pheromones pheromone = {
+        .color =  PURPLE,
+        .position = { 0, 0 },
+        .size = 4.0f,
+        .strength = 1.0f
+    };
+
     loadFood(&food);
     loadAnt(&ant);
 
@@ -88,8 +89,10 @@ int main(void)
         getFood(&food, &spawn);
 
         // Ants
-        forwardMovement(rotation_delta, delta_time, &ant, &spawn);
+        forwardMovement(rotation_delta, delta_time, spawn.position);
         handleWallCollision(rotation_delta, WIDTH, HEIGHT);
+
+        printf("%zf\n", delta_time * 100);
 
         // 3. Draw
         //----------------------------------------------------------------------------------
@@ -104,6 +107,9 @@ int main(void)
 
             // Draw Food
             drawFood();
+
+            // Draw Pheromones
+            drawPheromone(pheromone.size, pheromone.color);
 
             // Draw Spawn
             DrawCircle(spawn.position.x, spawn.position.y, spawn.size, spawn.color);

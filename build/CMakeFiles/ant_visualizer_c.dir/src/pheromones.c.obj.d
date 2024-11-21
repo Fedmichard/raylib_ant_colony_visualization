@@ -1,5 +1,6 @@
-CMakeFiles/ant_visualizer_c.dir/src/main.c.obj: \
- C:\Users\Fed\Documents\PROJEKTS\updated\raylib_ant_colony_visualization\src\main.c \
+CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.obj: \
+ C:\Users\Fed\Documents\PROJEKTS\updated\raylib_ant_colony_visualization\src\pheromones.c \
+ C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/pheromones.h \
  C:/msys64/ucrt64/include/stdio.h \
  C:/msys64/ucrt64/include/corecrt_stdio_config.h \
  C:/msys64/ucrt64/include/corecrt.h C:/msys64/ucrt64/include/_mingw.h \
@@ -25,14 +26,6 @@ CMakeFiles/ant_visualizer_c.dir/src/main.c.obj: \
  C:/msys64/ucrt64/include/_mingw_stdarg.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/13.2.0/include/stdbool.h \
  C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/header_files/raymath.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/header_files/raygui.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/header_files/raylib.h \
- C:/msys64/ucrt64/include/string.h \
- C:/msys64/ucrt64/include/sec_api/string_s.h \
  C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/ants.h \
  C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/foods.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/spawn.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/foods.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/spawn.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/pheromones.h \
- C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/ants.h
+ C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/includes/spawn.h

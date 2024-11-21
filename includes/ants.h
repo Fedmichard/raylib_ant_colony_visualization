@@ -36,8 +36,8 @@ extern Texture2D ant_texture;
 void loadAnt(Ant* ant); // load ants
 void drawAnt(); // draw all of our ants
 
-void forwardMovement(float rotation_delta, float delta_time, Ant* ant, Spawn* spawn); // keeps ants moving forward 
-void backToSpawn(Ant* ant, Spawn* spawn);
+void forwardMovement(float rotation_delta, float delta_time, Vector2 spawn); // keeps ants moving forward 
+void backToSpawn(Ant* ant, Vector2 spawn);
 void handleWallCollision(float rotation_delta, int width, int height); // update movement based on angle and direction
 
 

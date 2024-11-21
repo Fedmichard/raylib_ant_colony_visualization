@@ -22,7 +22,7 @@ void drawAnt() {
     }
 }
 
-void forwardMovement(float rotation_delta, float delta_time, Ant* ant, Spawn* spawn) {
+void forwardMovement(float rotation_delta, float delta_time, Vector2 spawn) {
     // Ants movement updates
     // The direction is calculated based on the angle and returns a 2d normalized vector
     // A normalized vector is one of length 1 so if we were to draw this vector it would
@@ -74,10 +74,10 @@ void forwardMovement(float rotation_delta, float delta_time, Ant* ant, Spawn* sp
     }
 }
 
-void backToSpawn(Ant* ant, Spawn* spawn) {
+void backToSpawn(Ant* ant, Vector2 spawn) {
     // if the ant is currently holding food
     if (ant->carrying) {
-        Vector2 direction = Vector2Subtract(spawn->position, ant->position); // set its direction to the spawn position
+        Vector2 direction = Vector2Subtract((Vector2) {spawn.x, spawn.y}, ant->position); // set its direction to the spawn position
         ant->angle = RAD2DEG * atan2f(direction.y, direction.x) + 90.0f; // set its angle to that direction so it moves towards it
     }
 }
