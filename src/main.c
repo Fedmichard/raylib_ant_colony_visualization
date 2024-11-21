@@ -89,8 +89,8 @@ int main(void)
         depositFood(&spawn);
 
         // Ants
-        forwardMovement(delta_time);
-        updateMovement(rotation_delta, WIDTH, HEIGHT);
+        forwardMovement(rotation_delta, delta_time);
+        handleWallCollision(rotation_delta, WIDTH, HEIGHT);
 
         // 3. Draw
         //----------------------------------------------------------------------------------

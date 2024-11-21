@@ -15,7 +15,7 @@ void loadAnt(Ant* ant) {
     }
 }
 
-void forwardMovement(float delta_time) {
+void forwardMovement(float rotation_delta, float delta_time) {
     // Ants movement updates
     // The direction is calculated based on the angle and returns a 2d normalized vector
     // A normalized vector is one of length 1 so if we were to draw this vector it would
@@ -33,17 +33,17 @@ void forwardMovement(float delta_time) {
         if (ants[i].carrying) {
             ants[i].food->position = ants[i].position; // make the current position of the stored food reference = to ant pos
         }
-    }
-}
-
-void updateMovement(float rotation_delta, int width, int height) {
-    // Update angle for the ants
-    for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
+        
+        // add random permutations of angle while the ants are moving forward
         if (GetRandomValue(0, 100) < 1) {
             ants[i].angle += GetRandomValue(-5, 5) * rotation_delta;
         }
+    }
+}
 
-        // Collisions
+void handleWallCollision(float rotation_delta, int width, int height) {
+    // Update angle for the ants
+    for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
         // Left Wall
         if (ants[i].position.x < 5) { 
             ants[i].position.x = 5; // Reset position to prevent getting stuck
