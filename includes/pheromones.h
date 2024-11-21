@@ -17,8 +17,6 @@ typedef struct Pheromones {
     float strength; // strength of each which also determines size
 } Pheromones;
 
-void createPheromone();
-
-void drawPheromone(float size, Color color);
+void drawPheromone(float size, Color color, Vector2 position, float strength);
 
 #endif

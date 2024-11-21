@@ -1,10 +1,6 @@
 #include "pheromones.h"
 
-void createPheromone() {
-
-}
-
-void drawPheromone(float size, Color color) {
+void drawPheromone(float size, Color color, Vector2 position, float strength) {
     for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
         if (ants[i].carrying) continue;
 

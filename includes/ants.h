@@ -40,7 +40,6 @@ void forwardMovement(float rotation_delta, float delta_time, Vector2 spawn); // 
 void backToSpawn(Ant* ant, Vector2 spawn);
 void handleWallCollision(float rotation_delta, int width, int height); // update movement based on angle and direction
 
-
 void getFood(Food* food, Spawn* spawn); // collect food
 
 #endif
