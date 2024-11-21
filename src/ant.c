@@ -65,7 +65,7 @@ void forwardMovement(float rotation_delta, float delta_time, Ant* ant, Spawn* sp
             ants[i].angle = RAD2DEG * atan2f(direction.y, direction.x) + 90.0f;
         }
 
-        backToSpawn(ant, spawn);
+        backToSpawn(&ants[i], spawn);
         
     }
 }
