@@ -1,6 +1,6 @@
-CMakeFiles/ant_visualizer_c.dir/src/ant.c.obj: \
- C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization\src\ant.c \
- C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/ants.h \
+CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj: \
+ C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization\src\grid.c \
+ C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/grid.h \
  C:/msys64/mingw64/include/stdio.h \
  C:/msys64/mingw64/include/corecrt_stdio_config.h \
  C:/msys64/mingw64/include/corecrt.h C:/msys64/mingw64/include/_mingw.h \
@@ -25,6 +25,4 @@ CMakeFiles/ant_visualizer_c.dir/src/ant.c.obj: \
  C:/msys64/mingw64/include/stdarg.h \
  C:/msys64/mingw64/include/_mingw_stdarg.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.1.0/include/stdbool.h \
- C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raymath.h \
- C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/foods.h \
- C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/spawn.h
+ C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/header_files/raymath.h

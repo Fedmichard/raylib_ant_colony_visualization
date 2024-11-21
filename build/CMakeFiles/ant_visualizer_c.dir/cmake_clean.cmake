@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ant_visualizer_c.dir/src/ant.c.obj.d"
   "CMakeFiles/ant_visualizer_c.dir/src/foods.c.obj"
   "CMakeFiles/ant_visualizer_c.dir/src/foods.c.obj.d"
+  "CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj"
+  "CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj.d"
   "CMakeFiles/ant_visualizer_c.dir/src/main.c.obj"
   "CMakeFiles/ant_visualizer_c.dir/src/main.c.obj.d"
   "CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.obj"

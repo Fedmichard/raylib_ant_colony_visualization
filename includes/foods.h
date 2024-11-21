@@ -9,7 +9,7 @@
 #include "raymath.h"
 #include "spawn.h"
 
-#define MAX_FOOD 2000
+#define MAX_FOOD 1000
 
 // All of our food information
 typedef struct Food {

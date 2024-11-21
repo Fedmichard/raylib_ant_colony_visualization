@@ -1,22 +1,32 @@
 [
 {
-  "directory": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\main.c.obj -c C:\\Users\\Fed\\Documents\\PROJEKTS\\updated\\raylib_ant_colony_visualization\\src\\main.c",
-  "file": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/src/main.c"
+  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\main.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\main.c",
+  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/main.c",
+  "output": "CMakeFiles/ant_visualizer_c.dir/src/main.c.obj"
 },
 {
-  "directory": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\ant.c.obj -c C:\\Users\\Fed\\Documents\\PROJEKTS\\updated\\raylib_ant_colony_visualization\\src\\ant.c",
-  "file": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/src/ant.c"
+  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\ant.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\ant.c",
+  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/ant.c",
+  "output": "CMakeFiles/ant_visualizer_c.dir/src/ant.c.obj"
 },
 {
-  "directory": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\foods.c.obj -c C:\\Users\\Fed\\Documents\\PROJEKTS\\updated\\raylib_ant_colony_visualization\\src\\foods.c",
-  "file": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/src/foods.c"
+  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\foods.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\foods.c",
+  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/foods.c",
+  "output": "CMakeFiles/ant_visualizer_c.dir/src/foods.c.obj"
 },
 {
-  "directory": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\pheromones.c.obj -c C:\\Users\\Fed\\Documents\\PROJEKTS\\updated\\raylib_ant_colony_visualization\\src\\pheromones.c",
-  "file": "C:/Users/Fed/Documents/PROJEKTS/updated/raylib_ant_colony_visualization/src/pheromones.c"
+  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\pheromones.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\pheromones.c",
+  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/pheromones.c",
+  "output": "CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.obj"
+},
+{
+  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
+  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\grid.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\grid.c",
+  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/grid.c",
+  "output": "CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj"
 }
 ]

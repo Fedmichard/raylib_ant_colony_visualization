@@ -9,19 +9,8 @@
 #include "ants.h"
 #include "foods.h"
 #include "spawn.h"
+#include "grid.h"
 #include "pheromones.h"
-
-// screen width and height
-#define WIDTH 1080
-#define HEIGHT 720
-
-// grid variables
-#define COLS 108
-#define ROWS 72
-#define DECAY_RATE 0.01f
-
-const int cell_width = WIDTH / COLS;
-const int cell_height = HEIGHT / ROWS;
 
 // Time Variables
 float delta_time;
@@ -108,14 +97,10 @@ int main(void)
 
         BeginDrawing();
             // Background
-            ClearBackground((Color) { 6.0f, 8.0f, 9.0f, 1.0f });
+            ClearBackground((Color) { 6.0f, 8.0f, 9.0f, 255.0f });
 
             // Draw Grid
-            for (int i = 0; i < COLS; i++) {
-                for (int j = 0; j < ROWS; j++) {
-                    DrawRectangleLines(i * cell_width, j * cell_height, cell_width, cell_height, (Color) { 255, 255, 255 });    
-                }
-            }
+            drawGrid();
 
             // Draw ants
             drawAnt();
@@ -128,6 +113,8 @@ int main(void)
 
             // Draw Spawn
             DrawCircle(spawn.position.x, spawn.position.y, spawn.size, spawn.color);
+
+            DrawFPS(10, 10);
 
             // GUI
             // GuiPanel((Rectangle){ 675, 100, 100, 25 }, "Hi!");

@@ -2,6 +2,7 @@
     "files.associations": {
         "ants.h": "c",
         "foods.h": "c",
-        "raymath.h": "c"
+        "raymath.h": "c",
+        "grid.h": "c"
     }
 }
