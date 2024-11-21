@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "ants.h": "c"
+        "ants.h": "c",
+        "foods.h": "c"
     }
 }

@@ -200,30 +200,6 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/spawn.obj: src/spawn.c.obj
-.PHONY : src/spawn.obj
-
-# target to build an object file
-src/spawn.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/spawn.c.obj
-.PHONY : src/spawn.c.obj
-
-src/spawn.i: src/spawn.c.i
-.PHONY : src/spawn.i
-
-# target to preprocess a source file
-src/spawn.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/spawn.c.i
-.PHONY : src/spawn.c.i
-
-src/spawn.s: src/spawn.c.s
-.PHONY : src/spawn.s
-
-# target to generate assembly for a file
-src/spawn.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/spawn.c.s
-.PHONY : src/spawn.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -242,9 +218,6 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
-	@echo ... src/spawn.obj
-	@echo ... src/spawn.i
-	@echo ... src/spawn.s
 .PHONY : help
 
 

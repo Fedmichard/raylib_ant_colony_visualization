@@ -1,25 +1,18 @@
 #include "foods.h"
-#include "ants.h"
 
 Food foods[MAX_FOOD];
 
-void getFood(Food* food) {
-    for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-            if (ants[i].carrying == true) continue; // if the ant is currently carrying, skip to next ant
+// Starting food values
 
-            // for every food in our food array
-            for (int v = 0; v < (sizeof(foods) / sizeof(foods[0])); v++) {
-                if (foods[v].taken) continue; // if food is currently taken skip to next food
-
-                // create a vector between current ant position and current food position is less than size of the food
-                if (Vector2Distance(ants[i].position, foods[v].position) < food->size) {
-                    foods[v].taken = true; // set the current food taken to true
-                    ants[i].carrying = true; // set that current ant carrying to true
-                    ants[i].food = &foods[v]; // pass reference of current food to be held in ant struct
-                    break; // break out of loop for current food
-                }
-            }
-        }
+void loadFood(Food* food) {
+    for (int i = 0; i < sizeof(foods) / sizeof(foods[0]); i++) {
+        foods[i].position.x = food->position.x + GetRandomValue(0, 50); // random x position assigned within range of org spawn
+        foods[i].position.y = food->position.y + GetRandomValue(0, 50); // random y position assigned within range of org spawn
+        foods[i].color = food->color; // color of each food
+        foods[i].size = food->size; // size of each food
+        foods[i].taken = food->taken; // taken is deafult
+        foods[i].active = food->active;
+    }
 }
 
 void depositFood(Spawn* spawn) {

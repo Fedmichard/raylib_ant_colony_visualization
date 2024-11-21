@@ -16,11 +16,5 @@
   "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\foods.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\foods.c",
   "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/foods.c",
   "output": "CMakeFiles/ant_visualizer_c.dir/src/foods.c.obj"
-},
-{
-  "directory": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/build",
-  "command": "C:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/ant_visualizer_c.dir/includes_C.rsp -g -o CMakeFiles\\ant_visualizer_c.dir\\src\\spawn.c.obj -c C:\\Users\\franc\\Documents\\Personal_Projects\\raylib_ant_colony_visualization\\src\\spawn.c",
-  "file": "C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/src/spawn.c",
-  "output": "CMakeFiles/ant_visualizer_c.dir/src/spawn.c.obj"
 }
 ]

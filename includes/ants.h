@@ -11,6 +11,11 @@
 
 #define MAX_ANTS 2000
 
+// Structure that holds all of our ant information
+// direction represents the direction the ant is facing
+// position represents its pos
+// speed represents its speed
+// angle represents the angle its facing
 typedef struct Ant {
     Vector2 direction; // direction vector of ants face
     Vector2 position; // position of each ant
@@ -26,7 +31,12 @@ extern Ant ants[MAX_ANTS];
 // Ant texture
 extern Texture2D ant_texture;
 
-void forwardMovement(float delta_time);
-void updateMovement(float rotation_delta, int width, int height);
+void loadAnt(Ant* ant); // load ants
+
+void forwardMovement(float delta_time); // keeps ants moving forward 
+void updateMovement(float rotation_delta, int width, int height); // update movement based on angle and direction
+
+
+void getFood(Food* food); // collect food
 
 #endif
