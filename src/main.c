@@ -85,8 +85,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         // food
-        getFood(&food);
-        depositFood(&spawn);
+        getFood(&food, &spawn);
 
         // Ants
         forwardMovement(rotation_delta, delta_time, &ant, &spawn);

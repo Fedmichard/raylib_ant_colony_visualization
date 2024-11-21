@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "ants.h": "c",
-        "foods.h": "c"
+        "foods.h": "c",
+        "raymath.h": "c"
     }
 }

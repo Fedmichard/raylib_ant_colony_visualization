@@ -6,8 +6,8 @@ Food foods[MAX_FOOD];
 
 void loadFood(Food* food) {
     for (int i = 0; i < sizeof(foods) / sizeof(foods[0]); i++) {
-        foods[i].position.x = food->position.x + GetRandomValue(0, 50); // random x position assigned within range of org spawn
-        foods[i].position.y = food->position.y + GetRandomValue(0, 50); // random y position assigned within range of org spawn
+        foods[i].position.x = food->position.x + GetRandomValue(0, 200); // random x position assigned within range of org spawn
+        foods[i].position.y = food->position.y + GetRandomValue(0, 200); // random y position assigned within range of org spawn
         foods[i].color = food->color; // color of each food
         foods[i].size = food->size; // size of each food
         foods[i].taken = food->taken; // taken is deafult
@@ -19,17 +19,5 @@ void drawFood() {
     for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
         if (!foods[i].active) continue;  
         DrawCircle(foods[i].position.x, foods[i].position.y, foods[i].size, foods[i].color);
-    }
-}
-
-void depositFood(Spawn* spawn) {
-    // food deposit
-    for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
-        if (Vector2Distance(foods[i].position, spawn->position) < spawn->size) {
-            // foods[i]
-            // free(foods[i]);
-            // foods[i].active = false;
-            foods[i].color = WHITE;
-        }
     }
 }

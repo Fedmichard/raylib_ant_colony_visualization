@@ -10,7 +10,7 @@
 #include "foods.h"
 #include "spawn.h"
 
-#define MAX_ANTS 200
+#define MAX_ANTS 1000
 
 // Structure that holds all of our ant information
 // direction represents the direction the ant is facing
@@ -34,13 +34,13 @@ extern Ant ants[MAX_ANTS];
 extern Texture2D ant_texture;
 
 void loadAnt(Ant* ant); // load ants
-void drawAnt();
+void drawAnt(); // draw all of our ants
 
 void forwardMovement(float rotation_delta, float delta_time, Ant* ant, Spawn* spawn); // keeps ants moving forward 
 void backToSpawn(Ant* ant, Spawn* spawn);
 void handleWallCollision(float rotation_delta, int width, int height); // update movement based on angle and direction
 
 
-void getFood(Food* food); // collect food
+void getFood(Food* food, Spawn* spawn); // collect food
 
 #endif
