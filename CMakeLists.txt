@@ -15,7 +15,7 @@ set_target_properties(RAYLIB PROPERTIES
 )
 
 # Add the executable
-add_executable(ant_visualizer_c src/main.c)
+add_executable(ant_visualizer_c src/main.c src/ant.c src/foods.c src/spawn.c)
 
 # Link the Raylib library to the executable
 target_link_libraries(ant_visualizer_c PRIVATE RAYLIB)

@@ -128,6 +128,54 @@ ant_visualizer_c/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/build
 .PHONY : ant_visualizer_c/fast
 
+src/ant.obj: src/ant.c.obj
+.PHONY : src/ant.obj
+
+# target to build an object file
+src/ant.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/ant.c.obj
+.PHONY : src/ant.c.obj
+
+src/ant.i: src/ant.c.i
+.PHONY : src/ant.i
+
+# target to preprocess a source file
+src/ant.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/ant.c.i
+.PHONY : src/ant.c.i
+
+src/ant.s: src/ant.c.s
+.PHONY : src/ant.s
+
+# target to generate assembly for a file
+src/ant.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/ant.c.s
+.PHONY : src/ant.c.s
+
+src/foods.obj: src/foods.c.obj
+.PHONY : src/foods.obj
+
+# target to build an object file
+src/foods.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/foods.c.obj
+.PHONY : src/foods.c.obj
+
+src/foods.i: src/foods.c.i
+.PHONY : src/foods.i
+
+# target to preprocess a source file
+src/foods.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/foods.c.i
+.PHONY : src/foods.c.i
+
+src/foods.s: src/foods.c.s
+.PHONY : src/foods.s
+
+# target to generate assembly for a file
+src/foods.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/foods.c.s
+.PHONY : src/foods.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -152,6 +200,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/spawn.obj: src/spawn.c.obj
+.PHONY : src/spawn.obj
+
+# target to build an object file
+src/spawn.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/spawn.c.obj
+.PHONY : src/spawn.c.obj
+
+src/spawn.i: src/spawn.c.i
+.PHONY : src/spawn.i
+
+# target to preprocess a source file
+src/spawn.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/spawn.c.i
+.PHONY : src/spawn.c.i
+
+src/spawn.s: src/spawn.c.s
+.PHONY : src/spawn.s
+
+# target to generate assembly for a file
+src/spawn.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/spawn.c.s
+.PHONY : src/spawn.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,9 +233,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ant_visualizer_c
+	@echo ... src/ant.obj
+	@echo ... src/ant.i
+	@echo ... src/ant.s
+	@echo ... src/foods.obj
+	@echo ... src/foods.i
+	@echo ... src/foods.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/spawn.obj
+	@echo ... src/spawn.i
+	@echo ... src/spawn.s
 .PHONY : help
 
 
