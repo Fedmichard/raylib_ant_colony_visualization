@@ -27,6 +27,7 @@ typedef struct Food {
     float size; // size of each food
     Color color; // color of each food
     bool taken; // whether or not the food is currently equipped
+    bool active;
 } Food;
 
 Food foods[MAX_FOOD]; // array of food structs
@@ -103,7 +104,8 @@ int main(void)
         .position = { 800, 200}, // starting position of each food
         .color = GREEN, // color of food
         .size = 4.0f, // size of each
-        .taken = false // whether or not its taken is default false
+        .taken = false, // whether or not its taken is default false
+        .active = true,
     };
 
     // Starting food values
@@ -113,6 +115,7 @@ int main(void)
         foods[i].color = food.color; // color of each food
         foods[i].size = food.size; // size of each food
         foods[i].taken = food.taken; // taken is deafult
+        foods[i].active = food.active;
     }
 
     // Ants starting positions and angles
@@ -139,8 +142,8 @@ int main(void)
         //----------------------------------------------------------------------------------
 
        
-        // Update Food Collisions
-         // for every ant in our ant array
+        // food collection
+        // for every ant in our ant array
         for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
             if (ants[i].carrying == true) continue; // if the ant is currently carrying, skip to next ant
 
@@ -155,6 +158,15 @@ int main(void)
                     ants[i].food = &foods[v]; // pass reference of current food to be held in ant struct
                     break; // break out of loop for current food
                 }
+            }
+        }
+
+        // food deposit
+        for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
+            if (Vector2Distance(foods[i].position, spawn.position) < spawn.size) {
+                // foods[i]
+                // free(foods[i]);
+                // foods[i].active = false;
             }
         }
 
@@ -215,6 +227,8 @@ int main(void)
 
         // 3. Draw
         //----------------------------------------------------------------------------------
+
+
         BeginDrawing();
             // Background
             ClearBackground(BLACK);
@@ -235,8 +249,8 @@ int main(void)
 
             // Draw Food
             for (int i = 0; i < (sizeof(foods) / sizeof(foods[0])); i++) {
+                if (!foods[i].active) continue;  
                 DrawCircle(foods[i].position.x, foods[i].position.y, foods[i].size, foods[i].color);
-                // DrawCircleLines(foods[i].position.x, foods[i].position.y, food.size, WHITE);
             }
 
             // Draw Spawn
