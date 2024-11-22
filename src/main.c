@@ -101,7 +101,7 @@ int main(void)
             drawGrid();
 
             // Draw ants
-            // drawAnt();
+            drawAnt();
 
             // Draw Food
             drawFood();

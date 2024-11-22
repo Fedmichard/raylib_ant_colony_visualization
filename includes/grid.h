@@ -14,11 +14,11 @@
 #define HEIGHT 720
 
 // grid variables
-#define COLS 135
-#define ROWS 90
+#define COLS 180
+#define ROWS 120
 #define DECAY_RATE 0.01f
 
-Color updateGrid();
+void updateGrid();
 void drawGrid();
 
 #endif
