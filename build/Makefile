@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization
+CMAKE_SOURCE_DIR = C:\Users\franc\Documents\Personal_Projects\change\raylib_ant_colony_visualization
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization\build
+CMAKE_BINARY_DIR = C:\Users\franc\Documents\Personal_Projects\change\raylib_ant_colony_visualization\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization\build\CMakeFiles C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\franc\Documents\Personal_Projects\change\raylib_ant_colony_visualization\build\CMakeFiles C:\Users\franc\Documents\Personal_Projects\change\raylib_ant_colony_visualization\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\franc\Documents\Personal_Projects\raylib_ant_colony_visualization\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\franc\Documents\Personal_Projects\change\raylib_ant_colony_visualization\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -224,30 +224,6 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/pheromones.obj: src/pheromones.c.obj
-.PHONY : src/pheromones.obj
-
-# target to build an object file
-src/pheromones.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.obj
-.PHONY : src/pheromones.c.obj
-
-src/pheromones.i: src/pheromones.c.i
-.PHONY : src/pheromones.i
-
-# target to preprocess a source file
-src/pheromones.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.i
-.PHONY : src/pheromones.c.i
-
-src/pheromones.s: src/pheromones.c.s
-.PHONY : src/pheromones.s
-
-# target to generate assembly for a file
-src/pheromones.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ant_visualizer_c.dir\build.make CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.s
-.PHONY : src/pheromones.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -269,9 +245,6 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
-	@echo ... src/pheromones.obj
-	@echo ... src/pheromones.i
-	@echo ... src/pheromones.s
 .PHONY : help
 
 

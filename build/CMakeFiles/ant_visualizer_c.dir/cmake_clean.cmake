@@ -7,8 +7,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj.d"
   "CMakeFiles/ant_visualizer_c.dir/src/main.c.obj"
   "CMakeFiles/ant_visualizer_c.dir/src/main.c.obj.d"
-  "CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.obj"
-  "CMakeFiles/ant_visualizer_c.dir/src/pheromones.c.obj.d"
   "ant_visualizer_c.exe"
   "ant_visualizer_c.exe.manifest"
   "ant_visualizer_c.pdb"

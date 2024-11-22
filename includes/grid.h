@@ -17,8 +17,6 @@
 #define COLS 180
 #define ROWS 120
 
-float calculateDecayRate(float distance);
-float updateStrength();
 void updateGrid();
 void drawGrid();
 
