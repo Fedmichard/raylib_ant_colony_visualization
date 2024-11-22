@@ -18,6 +18,8 @@
 #define ROWS 120
 #define DECAY_RATE 0.01f
 
+float calculateDecayRate(float distance);
+float updateStrength();
 void updateGrid();
 void drawGrid();
 

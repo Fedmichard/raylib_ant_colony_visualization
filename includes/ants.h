@@ -10,7 +10,7 @@
 #include "foods.h"
 #include "spawn.h"
 
-#define MAX_ANTS 100
+#define MAX_ANTS 1
 
 // Structure that holds all of our ant information
 // direction represents the direction the ant is facing
@@ -25,6 +25,7 @@ typedef struct Ant {
     float angle; // angle which defines direction
     float rotation_speed; // speed of rotation to create rotation delta
     float sensing_radius;
+    float distance_from_home; // distance ant is from home
     bool carrying; // is currently carrying food
 } Ant;
 

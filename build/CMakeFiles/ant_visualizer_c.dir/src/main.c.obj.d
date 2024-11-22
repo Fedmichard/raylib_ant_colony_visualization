@@ -35,5 +35,4 @@ CMakeFiles/ant_visualizer_c.dir/src/main.c.obj: \
  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/foods.h \
  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/spawn.h \
  C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/grid.h \
- C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/ants.h \
- C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/pheromones.h
+ C:/Users/franc/Documents/Personal_Projects/raylib_ant_colony_visualization/includes/ants.h

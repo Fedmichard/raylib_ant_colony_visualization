@@ -10,7 +10,6 @@
 #include "foods.h"
 #include "spawn.h"
 #include "grid.h"
-#include "pheromones.h"
 
 // Time Variables
 float delta_time;
@@ -31,8 +30,8 @@ int main(void)
 
     // define base spawn information
     Spawn spawn = {
-        .color = (Color) { 214, 204, 194, 255 },
-        .position = { WIDTH / 2, HEIGHT / 2 }, 
+        .color = PURPLE,
+        .position = { 100, 650 }, 
         .size = 10.0f
     };
 
@@ -51,17 +50,10 @@ int main(void)
     // define base food information
     Food food = {
         .position = { 800, 200}, // starting position of each food
-        .color = (Color) { 70, 63, 58, 255 }, // color of food
+        .color = (Color) { 144, 219, 244, 255 }, // color of food
         .size = 3.5f, // size of each
         .taken = false, // whether or not its taken is default false
         .active = true,
-    };
-
-    Pheromones pheromone = {
-        .color =  PURPLE,
-        .position = { 0, 0 },
-        .size = 4.0f,
-        .strength = 1.0f
     };
 
     loadFood(&food);

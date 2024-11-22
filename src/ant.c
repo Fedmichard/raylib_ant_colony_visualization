@@ -18,7 +18,7 @@ void loadAnt(Ant* ant) {
 
 void drawAnt() {
     for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-        DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.02f, (Color) { 213, 189, 175, 255 });    
+        DrawTextureEx(ant_texture, ants[i].position, ants[i].angle, 0.015f, (Color) { 255, 255, 255, 255 });    
     }
 }
 
@@ -35,6 +35,7 @@ void forwardMovement(float rotation_delta, float delta_time, Vector2 spawn) {
         ants[i].direction = base_direction;
         Food* nearest_food = NULL; // the nearest food to the ant
         float nearest_distance = ants[i].sensing_radius; // the nearest distance to the food
+        ants[i].distance_from_home = Vector2Distance(ants[i].position, spawn);
 
         // update its position based on the direction and speed
         ants[i].position.y += (ants[i].direction.y * ants[i].speed) * delta_time;
