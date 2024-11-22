@@ -9,44 +9,56 @@ const float gridUpdateInterval = 0.5f; // Update every 0.15 seconds
 float gridUpdateTimer = 0.0f;  // Keeps track of elapsed time
 
 float max_strength = 255.0f; // max strength of a cell, corresponding to opacity
-float min_strength = 25.0f;
-float base_decay_rate = 0.25f; // rate of decay of each colored cell
+float min_strength = 10.0f;
+float strength_decay_rate = 20.0f;
+
+float base_decay_rate = 0.0003f; // rate of decay of each colored cell
 
 float calculateDecayRate(float distance) {
     return distance;
 }
 
 float updateStrength() {
-    
+    // strength will start at 255
+    // over time the strength will gradually decrease less and less to a minimum value
+    // use this strength value when drawing the 
+    float strength;
+
+    strength -= GetFrameTime() * strength_decay_rate;
+
+    return strength;
 }
 
 void updateGrid() {
     // Increment the timer with the time since the last frame
     gridUpdateTimer += GetFrameTime();
 
+    // Gradually reduce max_strength using exponential decay
+    float decay_factor = 0.1f; // Adjust this to control the decay speed
+    max_strength -= (max_strength - min_strength) * decay_factor * GetFrameTime();
+    if (max_strength < min_strength) {
+        max_strength = min_strength; // Clamp to min_strength
+    }
+    printf("Current max_strength: %.2f\n", max_strength);
+
     // Check if it's time to update the grid
     if (gridUpdateTimer >= gridUpdateInterval) {
         gridUpdateTimer = 0.0f;  // Reset the timer if it's time to update
 
         // Update the grid with ants' current positions
-        // for all the ants
         for (int i = 0; i < (sizeof(ants) / sizeof(ants[0])); i++) {
-            printf("Current Distance: %zf\n", calculateDecayRate(ants[i].distance_from_home));
-            int col = ants[i].position.x / cell_width; // check which colum the ant is currently in
-            int row = ants[i].position.y / cell_height; // check which row the ant is currently in
+            int col = ants[i].position.x / cell_width; // Check which column the ant is currently in
+            int row = ants[i].position.y / cell_height; // Check which row the ant is currently in
 
-            // make sure the column and row the ants are within the range of 0 - COL/ROW
+            // Ensure the column and row are within valid ranges
             if ((col >= 0 && col < COLS) && (row >= 0 && row < ROWS)) {
                 // Update grid based on carrying status
-                // if the ant is carrying
                 if (ants[i].carrying) {
-                    // add/subtract one to i so even if it was the 0 index you will always get a positive or negative value
                     grid[col][row] = max_strength;  // Positive value for carrying
                 } else {
-                    grid[col][row] = -(max_strength);  // Negative value for not carrying
+                    grid[col][row] = -max_strength;  // Negative value for not carrying
                 }
             }
-
         }
     }
 }
@@ -59,11 +71,6 @@ void drawGrid() {
             float decay = base_decay_rate * GetFrameTime();
             // Determine if the cell represents a "carrying" state
             bool carrying;
-            float decay_rate;
-
-            for (int k = 0; k < (sizeof(ants) / sizeof(ants[0])); k++) {
-                decay_rate = calculateDecayRate(ants[i].distance_from_home);
-            }
 
             // Update grid cell value and determine the color
             if (grid[i][j] != 0) {
@@ -73,12 +80,12 @@ void drawGrid() {
                     carrying = true;
                     grid[i][j] -= decay; // Decay it 
                     // don't let it decay past 0 so it doesn't turn to not carrying
-                    if (grid[i][j] < 0) grid[i][j] = 0; 
+                    if (grid[i][j] < 10) grid[i][j] = 10; 
                 } else {
                     carrying = false;
                     grid[i][j] += decay; // Decay it
                     // don't let it decay past 0 so it doesn't turn to carrying
-                    if (grid[i][j] > 0) grid[i][j] = 0; 
+                    if (grid[i][j] > -10) grid[i][j] = -10; 
                 }
 
                 // Set the color based on carrying state

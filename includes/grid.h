@@ -16,7 +16,6 @@
 // grid variables
 #define COLS 180
 #define ROWS 120
-#define DECAY_RATE 0.01f
 
 float calculateDecayRate(float distance);
 float updateStrength();
