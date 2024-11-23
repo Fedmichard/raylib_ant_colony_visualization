@@ -20,6 +20,8 @@ CMakeFiles/ant_visualizer_c.dir/src/grid.c.obj: \
  C:/msys64/mingw64/include/malloc.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.1.0/include/mm_malloc.h \
  C:/msys64/mingw64/include/errno.h C:/msys64/mingw64/include/math.h \
+ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.1.0/include/float.h \
+ C:/msys64/mingw64/include/float.h \
  C:/Users/franc/Documents/Personal_Projects/change/raylib_ant_colony_visualization/header_files/raylib.h \
  C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.1.0/include/stdarg.h \
  C:/msys64/mingw64/include/stdarg.h \

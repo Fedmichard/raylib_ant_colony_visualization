@@ -10,48 +10,41 @@ const int cell_height = HEIGHT / ROWS; // Height of each cell
 
 const float base_decay_rate = 100.0f; // Base decay rate for all trails
 
-// Define a 3D array for individual ant pheromone trails
-float ant_grid[MAX_ANTS][COLS][ROWS] = { 0 }; // Each ant has its own grid
+// Define a shared grid for all ants' pheromone trails
+float shared_grid[COLS][ROWS] = { 0 }; // Single grid for all ants
 
 void updateGrid() {
-    // Decay pheromone trails for each ant
-    for (int a = 0; a < MAX_ANTS; a++) { // Iterate over all ants
-        for (int i = 0; i < COLS; i++) {
-            for (int j = 0; j < ROWS; j++) {
-                if (ant_grid[a][i][j] != 0) {
-                    // Decay based on carrying or not carrying state
-                    float decay = base_decay_rate * GetFrameTime();
-                    if (ant_grid[a][i][j] > 0) { // Carrying pheromone
-                        ant_grid[a][i][j] -= decay;
-                        if (ant_grid[a][i][j] < min_strength) {
-                            ant_grid[a][i][j] = 0; // Clear once below minimum
-                        }
-                    } else { // Not carrying pheromone
-                        ant_grid[a][i][j] += decay;
-                        if (ant_grid[a][i][j] > -min_strength) {
-                            ant_grid[a][i][j] = 0; // Clear once above minimum
-                        }
+    // Decay pheromone trails for all ants
+    for (int i = 0; i < COLS; i++) {
+        for (int j = 0; j < ROWS; j++) {
+            if (shared_grid[i][j] != 0) {
+                // Decay pheromones in the shared grid
+                float decay = base_decay_rate * GetFrameTime();
+                if (shared_grid[i][j] > 0) { // Carrying pheromone
+                    shared_grid[i][j] -= decay;
+                    if (shared_grid[i][j] < min_strength) {
+                        shared_grid[i][j] = 0; // Clear once below minimum
+                    }
+                } else { // Not carrying pheromone
+                    shared_grid[i][j] += decay;
+                    if (shared_grid[i][j] > -min_strength) {
+                        shared_grid[i][j] = 0; // Clear once above minimum
                     }
                 }
             }
         }
     }
 
-    // Update each ant's current position in the grid
-    for (int a = 0; a < MAX_ANTS; a++) {
+    // Update pheromone deposits from ants
+    for (int a = 0; a < MAX_ANTS; a++) { // Iterate over all ants
         int col = ants[a].position.x / cell_width;
         int row = ants[a].position.y / cell_height;
 
-        if (ants[a].carrying) {
-            
-        } else {
-        }
-
         if (col >= 0 && col < COLS && row >= 0 && row < ROWS) {
             if (ants[a].carrying) {
-                ant_grid[a][col][row] = carrying_strength; // Deposit carrying pheromone
+                shared_grid[col][row] = carrying_strength; // Deposit carrying pheromone
             } else {
-                ant_grid[a][col][row] = -not_carrying_strength; // Deposit not carrying pheromone
+                shared_grid[col][row] = -not_carrying_strength; // Deposit not carrying pheromone
             }
         }
     }
@@ -63,13 +56,11 @@ void drawGrid() {
             float carrying_total = 0.0f;
             float not_carrying_total = 0.0f;
 
-            // Combine pheromone strengths from all ants
-            for (int a = 0; a < MAX_ANTS; a++) {
-                if (ant_grid[a][i][j] > 0) {
-                    carrying_total += ant_grid[a][i][j];
-                } else if (ant_grid[a][i][j] < 0) {
-                    not_carrying_total += ant_grid[a][i][j];
-                }
+            // Combine pheromone strengths from the shared grid
+            if (shared_grid[i][j] > 0) {
+                carrying_total = shared_grid[i][j];
+            } else if (shared_grid[i][j] < 0) {
+                not_carrying_total = shared_grid[i][j];
             }
 
             // Determine the final color of the cell

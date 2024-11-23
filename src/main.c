@@ -98,9 +98,6 @@ int main(void)
             // Draw Food
             drawFood();
 
-            // Draw Pheromones
-            // drawPheromone(pheromone.size, pheromone.color);
-
             // Draw Spawn
             DrawCircle(spawn.position.x, spawn.position.y, spawn.size, spawn.color);
 

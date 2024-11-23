@@ -35,4 +35,6 @@ CMakeFiles/ant_visualizer_c.dir/src/main.c.obj: \
  C:/Users/franc/Documents/Personal_Projects/change/raylib_ant_colony_visualization/includes/foods.h \
  C:/Users/franc/Documents/Personal_Projects/change/raylib_ant_colony_visualization/includes/spawn.h \
  C:/Users/franc/Documents/Personal_Projects/change/raylib_ant_colony_visualization/includes/grid.h \
+ C:/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/14.1.0/include/float.h \
+ C:/msys64/mingw64/include/float.h \
  C:/Users/franc/Documents/Personal_Projects/change/raylib_ant_colony_visualization/includes/ants.h
